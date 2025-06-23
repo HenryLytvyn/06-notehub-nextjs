@@ -1,19 +1,19 @@
-import { Formik, Form, Field, type FormikHelpers, ErrorMessage } from "formik";
-import { useId } from "react";
-import css from "./NoteForm.module.css";
-import type { NewNote } from "../../types/note";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createNote } from "../../services/noteService";
-import { FormSchema } from "../../YupSchemes/FormSchema";
+import { Formik, Form, Field, type FormikHelpers, ErrorMessage } from 'formik';
+import { useId } from 'react';
+import css from './NoteForm.module.css';
+import type { NewNote } from '../../types/note';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { createNote } from '@/lib/api';
+import { FormSchema } from '@/YupSchemes/FormSchema';
 
 interface NoteFormProps {
   onClose: () => void;
 }
 
 const initialValues: NewNote = {
-  title: "",
-  content: "",
-  tag: "Todo",
+  title: '',
+  content: '',
+  tag: 'Todo',
 };
 
 export default function NoteForm({ onClose }: NoteFormProps) {
@@ -26,7 +26,7 @@ export default function NoteForm({ onClose }: NoteFormProps) {
     onSuccess: () => {
       onClose();
       queryClient.invalidateQueries({
-        queryKey: ["allNotes"],
+        queryKey: ['allNotes'],
       });
     },
   });

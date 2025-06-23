@@ -38,22 +38,3 @@ export default function NoteItem({ item }: Props) {
     </li>
   );
 }
-
-{
-  /* <li key={id} className={css.listItem}>
-  <h2 className={css.title}>{title}</h2>
-  <p className={css.content}>{content}</p>
-  <div className={css.footer}>
-    <span className={css.tag}>{tag}</span>
-    <button
-      onClick={() => {
-        removeItem(id);
-      }}
-      disabled={isPending}
-      className={css.button}
-    >
-      Delete
-    </button>
-  </div>
-</li>; */
-}
