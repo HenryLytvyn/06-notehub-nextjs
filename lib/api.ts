@@ -40,3 +40,8 @@ export async function deleteNote(noteId: number): Promise<Note> {
   const { data } = await axios.delete<Note>(`/notes/${noteId}`, { headers });
   return data;
 }
+
+export async function getNoteById(noteId: number): Promise<Note> {
+  const { data } = await axios.get<Note>(`/notes/${noteId}`, { headers });
+  return data;
+}
