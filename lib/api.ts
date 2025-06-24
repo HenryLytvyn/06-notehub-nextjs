@@ -1,11 +1,6 @@
 import axios from 'axios';
 import type { Note, NewNote } from '../types/note';
-
-interface ResponseGetData {
-  notes: Note[];
-  totalPages: number;
-  page: number;
-}
+import { ResponseGetData } from '@/types/ResponseGetData';
 
 axios.defaults.baseURL = 'https://notehub-public.goit.study/api';
 const notehubToken = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
@@ -28,6 +23,7 @@ export async function fetchNotes(
     },
     headers,
   });
+  console.log(data);
   return data;
 }
 
@@ -41,7 +37,7 @@ export async function deleteNote(noteId: number): Promise<Note> {
   return data;
 }
 
-export async function getNoteById(noteId: number): Promise<Note> {
+export async function fetchNoteById(noteId: number): Promise<Note> {
   const { data } = await axios.get<Note>(`/notes/${noteId}`, { headers });
   return data;
 }

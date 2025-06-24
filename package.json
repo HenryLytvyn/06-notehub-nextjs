@@ -1,5 +1,5 @@
 {
-  "name": "06-notehub-nextjs",
+  "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,7 +16,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-paginate": "^8.3.0",
-    "use-debounce": "^10.0.5"
+    "use-debounce": "^10.0.5",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -26,7 +27,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "eslint-config-prettier": "^10.1.5",
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.0",
     "typescript": "^5"
   }
 }

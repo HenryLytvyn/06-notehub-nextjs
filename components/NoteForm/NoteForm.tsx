@@ -4,7 +4,7 @@ import css from './NoteForm.module.css';
 import type { NewNote } from '../../types/note';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createNote } from '@/lib/api';
-import { FormSchema } from '@/YupSchemes/FormSchema';
+import { FormSchema } from '../../YupSchemes/FormSchema';
 
 interface NoteFormProps {
   onClose: () => void;
@@ -14,6 +14,7 @@ const initialValues: NewNote = {
   title: '',
   content: '',
   tag: 'Todo',
+  createdAt: '',
 };
 
 export default function NoteForm({ onClose }: NoteFormProps) {
@@ -32,6 +33,7 @@ export default function NoteForm({ onClose }: NoteFormProps) {
   });
 
   function handleSubmit(values: NewNote, actions: FormikHelpers<NewNote>) {
+    initialValues.createdAt = new Date().toISOString().split('.')[0] + 'Z';
     addNote.mutate(values);
     actions.resetForm();
   }
