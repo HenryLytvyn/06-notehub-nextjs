@@ -1,15 +1,5 @@
 'use client';
 
-// Для отримання динамічного id в клієнтському компоненті використовуйте хук useParams(). Зверніть увагу, що він повертає значення параметрів у форматі рядка, а у нас id це число, тому обов'язково потрібно привести його до числа, щоб відповідати інтерфейсу Note.
-
-// Обов‘язково у клієнтському компоненті NoteDetailsClient опрацюйте стани isLoading, error та випадок коли детальну інформацію по нотатці не було отримано в клієнтському компоненті NoteDetailsClient. Поки що буде достатньо повернути наступну розмітку:
-
-// isLoading
-// <p>Loading, please wait...</p>
-
-// error, !note
-// <p>Something went wrong.</p>;
-
 import { useParams } from 'next/navigation';
 import css from './NoteDetails.module.css';
 import { useQuery } from '@tanstack/react-query';
@@ -65,7 +55,9 @@ export default function NoteDetailsClient() {
           {formattedDate}
         </p>
       </div>
-      {isModalOpen && <NoteModal onClose={() => setIsModalOpen(false)} />}
+      {isModalOpen && note && (
+        <NoteModal onClose={() => setIsModalOpen(false)} />
+      )}
     </div>
   );
 }

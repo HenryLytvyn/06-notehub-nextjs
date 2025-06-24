@@ -1,4 +1,3 @@
-// import NoteList from '@/components/NoteList/NoteList';
 import {
   dehydrate,
   HydrationBoundary,
@@ -13,10 +12,10 @@ type Props = {
 };
 
 export default async function Notes({ params }: Props) {
-  const { totalPages, page } = await params;
+  const { page } = await params;
   const queryClient = new QueryClient();
 
-  const perPage = totalPages / page;
+  const perPage = 9;
 
   await queryClient.prefetchQuery({
     queryKey: ['allNotes', page, perPage],

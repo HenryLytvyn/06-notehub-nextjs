@@ -23,7 +23,6 @@ export async function fetchNotes(
     },
     headers,
   });
-  console.log(data);
   return data;
 }
 

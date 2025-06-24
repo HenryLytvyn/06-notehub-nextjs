@@ -16,7 +16,7 @@ export default function NotesClient() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [debauncedQuery] = useDebounce(search, 1000);
 
-  const perPage = 12;
+  const perPage = 9;
 
   const allNotes = useQuery({
     queryKey: ['allNotes', debauncedQuery, page],
@@ -24,6 +24,7 @@ export default function NotesClient() {
     placeholderData: keepPreviousData,
     refetchOnMount: false,
   });
+
   function handleSearch(search: string) {
     setSearch(search);
     setPage(1);
@@ -53,12 +54,7 @@ export default function NotesClient() {
       {allNotes.isSuccess && allNotes.data.notes.length > 0 && (
         <NoteList items={allNotes.data.notes} />
       )}
-      {isModalOpen && (
-        <NoteModal
-          onClose={() => setIsModalOpen(false)}
-          // setIsOpen={setIsModalOpen}
-        />
-      )}
+      {isModalOpen && <NoteModal onClose={() => setIsModalOpen(false)} />}
     </div>
   );
 }

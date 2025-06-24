@@ -1,10 +1,13 @@
+'use client';
+
 import NoteForm from '../NoteForm/NoteForm';
 import css from './NoteModal.module.css';
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
+// import { Note } from '@/types/note';
 
 interface NoteModalProps {
-  // setIsOpen: () => void;
+  // note: Note | null;
   onClose: () => void;
 }
 

@@ -1,3 +1,5 @@
+'use client';
+
 import { Formik, Form, Field, type FormikHelpers, ErrorMessage } from 'formik';
 import { useId } from 'react';
 import css from './NoteForm.module.css';
@@ -9,8 +11,6 @@ import { FormSchema } from '../../YupSchemes/FormSchema';
 interface NoteFormProps {
   onClose: () => void;
 }
-
-// if () {}
 
 const initialValues: NewNote = {
   title: '',
