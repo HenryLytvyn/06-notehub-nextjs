@@ -10,11 +10,12 @@ interface NoteFormProps {
   onClose: () => void;
 }
 
+// if () {}
+
 const initialValues: NewNote = {
   title: '',
   content: '',
   tag: 'Todo',
-  createdAt: '',
 };
 
 export default function NoteForm({ onClose }: NoteFormProps) {
@@ -33,7 +34,6 @@ export default function NoteForm({ onClose }: NoteFormProps) {
   });
 
   function handleSubmit(values: NewNote, actions: FormikHelpers<NewNote>) {
-    initialValues.createdAt = new Date().toISOString().split('.')[0] + 'Z';
     addNote.mutate(values);
     actions.resetForm();
   }

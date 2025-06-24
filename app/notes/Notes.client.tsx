@@ -53,7 +53,12 @@ export default function NotesClient() {
       {allNotes.isSuccess && allNotes.data.notes.length > 0 && (
         <NoteList items={allNotes.data.notes} />
       )}
-      {isModalOpen && <NoteModal onClose={() => setIsModalOpen(false)} />}
+      {isModalOpen && (
+        <NoteModal
+          onClose={() => setIsModalOpen(false)}
+          // setIsOpen={setIsModalOpen}
+        />
+      )}
     </div>
   );
 }

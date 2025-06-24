@@ -1,26 +1,27 @@
-import NoteForm from "../NoteForm/NoteForm";
-import css from "./NoteModal.module.css";
-import { createPortal } from "react-dom";
-import { useEffect } from "react";
+import NoteForm from '../NoteForm/NoteForm';
+import css from './NoteModal.module.css';
+import { createPortal } from 'react-dom';
+import { useEffect } from 'react';
 
 interface NoteModalProps {
+  // setIsOpen: () => void;
   onClose: () => void;
 }
 
 export default function NoteModal({ onClose }: NoteModalProps) {
   useEffect(() => {
-    document.addEventListener("keydown", handleKeyDown);
-    document.body.style.overflow = "hidden";
+    document.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
 
     function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
+      if (event.key === 'Escape') {
         onClose();
       }
     }
 
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
     };
   }, [onClose]);
 

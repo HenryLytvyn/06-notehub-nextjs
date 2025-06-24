@@ -3,19 +3,12 @@ export interface Note {
   content: string;
   tag: 'Todo' | 'Work' | 'Personal' | 'Meeting' | 'Shopping';
   id: number;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface NewNote {
   title: string;
   content?: string;
   tag: 'Todo' | 'Work' | 'Personal' | 'Meeting' | 'Shopping';
-  createdAt: string;
-}
-
-export interface ChangeNote {
-  title: string;
-  content: string;
-  tag: 'Todo' | 'Work' | 'Personal' | 'Meeting' | 'Shopping';
-  id: number;
-  updatedAt: string;
 }
