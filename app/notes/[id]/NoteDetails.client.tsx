@@ -22,8 +22,8 @@ export default function NoteDetailsClient() {
     refetchOnMount: false,
   });
 
-  if (isLoading) <p>Loading, please wait...</p>;
-  if (error || !note) <p>Something went wrong.</p>;
+  if (isLoading) return <p>Loading, please wait...</p>;
+  if (error || !note) return <p>Something went wrong.</p>;
 
   let label = '';
   let formattedDate = 'Date not available';

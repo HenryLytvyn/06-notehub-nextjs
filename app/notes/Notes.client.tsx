@@ -9,18 +9,23 @@ import SearchBox from '@/components/SearchBox/SearchBox';
 import Pagination from '@/components/Pagination/Pagination';
 import NoteList from '@/components/NoteList/NoteList';
 import NoteModal from '@/components/NoteModal/NoteModal';
+import { Note } from '@/types/note';
 
-export default function NotesClient() {
+type Props = {
+  initialData: Note[];
+};
+
+export default function NotesClient({ initialData }: Props) {
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [debauncedQuery] = useDebounce(search, 1000);
+  const [debouncedQuery] = useDebounce(search, 1000);
 
   const perPage = 9;
 
   const allNotes = useQuery({
-    queryKey: ['allNotes', debauncedQuery, page],
-    queryFn: () => fetchNotes(page, perPage, search),
+    queryKey: ['allNotes', initialData, debouncedQuery, page],
+    queryFn: () => fetchNotes(page, perPage, debouncedQuery),
     placeholderData: keepPreviousData,
     refetchOnMount: false,
   });
