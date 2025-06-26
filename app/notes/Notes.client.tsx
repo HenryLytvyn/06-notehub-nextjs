@@ -28,7 +28,7 @@ export default function NotesClient({ initialData }: Props) {
     queryFn: () => fetchNotes(page, perPage, debouncedQuery),
     placeholderData: keepPreviousData,
     refetchOnMount: false,
-    initialData: page === 1 && debouncedQuery === '' ? initialData : undefined,
+    initialData: page === 1 && search === '' ? initialData : undefined,
   });
 
   function handleSearch(search: string) {
